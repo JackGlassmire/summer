@@ -25,6 +25,7 @@ function setup() {
  // stroke( r , g , b );
  
  //noStroke; 
+  strokeWeight( 5 );
 }
 
 function draw() {
@@ -36,6 +37,7 @@ function draw() {
     B2[n].evolveDraw();
    
     line( B1[n].pos.x , B1[n].pos.y , B2[n].pos.x , B2[n].pos.y );
+      stroke( 255 , 255 , 255 );
     
   }
 }
