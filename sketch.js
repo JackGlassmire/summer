@@ -1,27 +1,75 @@
-function setup() {
-  createCanvas( windowWidth , windowHeight );
+var N = 6;
 
-  noStroke();
+var B1;
+var B2;
+
+function setup() {
+
+  createCanvas( windowWidth , windowHeight );
   
-  background( 0 , 0 , 0 )
+  B1 = new Array(N);
+  B2 = new Array(N);
+
+  for ( n = 0 ; n < N ; n++ ){
+    B1[n] = new Ball();
+    B2[n] = new Ball();
+
 }
+   
+  var r = random( 0 , 255);
+  var g = random( 0 , 255);
+  var b = random( 0 , 255);
+ 
+  background( r , g , b );
+ 
+  stroke( r , g , b );
+ 
+}
+
 function draw() {
 
-  var r = random( 0 , 35 );
-  var g = random( 0 , 150 );
-  var b = random( 0 , 255 );
-  var a = random( 0 , 100 );
-
-  fill( r , g , b , 2 ); 
-  ellipse( mouseX , mouseY , 20 , 20 );
-  
-  fill( r , g , b , a );
-  ellipse( mouseX , mouseY , 30 , 30 );
-  
-  fill( r , g , b , a );
-  ellipse( mouseX , mouseY , 40 , 40);
+  for ( n = 0 ; n < N ; n++ ){
+    B1[n].evolveDraw();
+    B2[n].evolveDraw();
    
-  fill( r , g , b , a );
-  ellipse( mouseX , mouseY , 50 , 50);
-   
+  }
 }
+
+var Ball = function(){
+  this.pos = createVector( width/2 , height/2 );
+  
+  this.pos2 = createVector( width/2 , height/2 );
+ 
+  this.v = p5.Vector.random2D();
+   this.v.mult( random( 1 , 4 ) );
+  
+  this.evolveDraw =function() {
+    this.pos.add( this.v );
+  
+    if ( this.pos.x >= width || this.pos.x <= 0 ){
+      this.v.x *=-1;
+    }
+    if ( this.pos.y >= height || this.pos.y <= 0 ){
+      this.v.y *=-1;
+    }
+    
+  var r = random( 0 , 255);
+  var g = random( 0 , 255);
+  var b = random( 0 , 255);
+
+  
+    fill( r , g ,b );
+    ellipse( this.pos.x , this.pos.y , 20 );
+   
+    
+  };
+  
+};
+
+
+function keyTyped() {
+  if( key === 's' ) {
+    saveCanvas( 'canvas' , 'jpg' );
+    console.log("saved");
+  };
+ }
