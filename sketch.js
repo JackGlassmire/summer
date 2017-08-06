@@ -25,7 +25,7 @@ function setup() {
  // stroke( r , g , b );
  
  //noStroke; 
-  strokeWeight( 5 );
+  strokeWeight( 0.5 );
 }
 
 function draw() {
@@ -74,7 +74,7 @@ var Ball = function(){
   var b = random( windowWidth/3.6 , windowHeight*.12 );  
   
     fill( r , g ,b );
-    ellipse( this.pos.x , this.pos.y , 20 );
+    ellipse( this.pos.x , this.pos.y , 5 );
    
     
   };
