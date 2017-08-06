@@ -43,9 +43,9 @@ function draw() {
 }
 
 var Ball = function(){
-  this.pos = createVector( width/2*mouseY , height/2 );
+  this.pos = createVector( width/2 , height/2 );
   
-  this.pos2 = createVector( width/2 , height/2*mouseY );
+  this.pos2 = createVector( width/2 , height/2 );
  
   this.v = p5.Vector.random2D();
    this.v.mult( random( 1+mouseX , 4 ) );
@@ -64,9 +64,9 @@ var Ball = function(){
   //var g = random( 0 , 255);
   //var b = random( 0 , 255);
     
-  var r = random( mouseX/3.6 , mouseY*.12 );  
-  var g = random( mouseX/3.6 , mouseY*.12 );
-  var b = random( mouseX/3.6 , mouseY*.12 );  
+  var r = random( windowWidth/3.6 , windowHeight*.12 );  
+  var g = random( windowWidth/3.6 , windowHeight*.12 );  
+  var b = random( windowWidth/3.6 , windowHeight*.12 );  
   
     fill( r , g ,b );
     ellipse( this.pos.x , this.pos.y , 20 );
