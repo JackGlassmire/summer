@@ -32,12 +32,17 @@ function draw() {
 
   background( 0 , 0 , 0 );
   
+  var r = random( windowWidth/3.6 , windowHeight*.12 );  
+  var g = random( windowWidth/3.6 , windowHeight*.12 );  
+  var b = random( windowWidth/3.6 , windowHeight*.12 );  
+  
+  
   for ( n = 0 ; n < N ; n++ ){
     B1[n].evolveDraw();
     B2[n].evolveDraw();
    
     line( B1[n].pos.x , B1[n].pos.y , B2[n].pos.x , B2[n].pos.y );
-      stroke( 255 , 255 , 255 );
+      stroke( r, g , b );
     
   }
 }
